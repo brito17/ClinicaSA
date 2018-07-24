@@ -3,21 +3,22 @@ package br.com.model.beans;
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 
 @Entity
-@SequenceGenerator(name="contato_sequence")
 public class Contato implements Serializable {
     
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
     private String contato;
     private String tipo;
 
     public Contato() {
     }
-    
+
     public Contato(String contato, String tipo) {
         this.contato = contato;
         this.tipo = tipo;
@@ -49,10 +50,10 @@ public class Contato implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 67 * hash + this.id;
-        hash = 67 * hash + Objects.hashCode(this.contato);
-        hash = 67 * hash + Objects.hashCode(this.tipo);
+        int hash = 7;
+        hash = 47 * hash + this.id;
+        hash = 47 * hash + Objects.hashCode(this.contato);
+        hash = 47 * hash + Objects.hashCode(this.tipo);
         return hash;
     }
 
@@ -84,5 +85,7 @@ public class Contato implements Serializable {
     public String toString() {
         return "Contato{" + "id=" + id + ", contato=" + contato + ", tipo=" + tipo + '}';
     }
+    
+    
     
 }

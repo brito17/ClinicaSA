@@ -5,14 +5,13 @@ import java.util.Date;
 import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 
 @Entity
-@SequenceGenerator(name="paciente_sequence")
 public class Paciente extends Pessoa implements Serializable {
     
-    @Id
     private String tipoSanguineo;
     private boolean fatorRH;
     private int dependentes;

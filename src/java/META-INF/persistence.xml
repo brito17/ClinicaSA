@@ -3,9 +3,10 @@
   <persistence-unit name="clinicaPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
     <class>br.com.model.beans.Contato</class>
+    <class>br.com.model.beans.Pessoa</class>
     <class>br.com.model.beans.Endereco</class>
     <class>br.com.model.beans.Paciente</class>
-    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <!-- Detectar automaticamente as classes-tabelas -->
       <property name="hibernate.archive.autodetection" value="class"/>
@@ -15,7 +16,7 @@
       <property name="javax.persistence.jdbc.password" value="38541162"/>
       <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
       <property name="hibernate.show_sql" value="true"/>
-      <property name="javax.persistence.schema-generation.database.action" value="create"/>
+      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
     </properties>
   </persistence-unit>
 </persistence>

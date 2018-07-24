@@ -2,9 +2,20 @@ package br.com.model.beans;
 
 import java.util.Date;
 import java.util.Objects;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
 
-public class Pessoa {
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public abstract class Pessoa {
    
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
     private String nome;
     private String cpf;
@@ -84,13 +95,13 @@ public class Pessoa {
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 61 * hash + this.id;
-        hash = 61 * hash + Objects.hashCode(this.nome);
-        hash = 61 * hash + Objects.hashCode(this.cpf);
-        hash = 61 * hash + Objects.hashCode(this.sexo);
-        hash = 61 * hash + Objects.hashCode(this.dataNascimento);
-        hash = 61 * hash + Objects.hashCode(this.endereco);
-        hash = 61 * hash + Objects.hashCode(this.contato);
+        hash = 29 * hash + this.id;
+        hash = 29 * hash + Objects.hashCode(this.nome);
+        hash = 29 * hash + Objects.hashCode(this.cpf);
+        hash = 29 * hash + Objects.hashCode(this.sexo);
+        hash = 29 * hash + Objects.hashCode(this.dataNascimento);
+        hash = 29 * hash + Objects.hashCode(this.endereco);
+        hash = 29 * hash + Objects.hashCode(this.contato);
         return hash;
     }
 
@@ -134,5 +145,7 @@ public class Pessoa {
     public String toString() {
         return "Pessoa{" + "id=" + id + ", nome=" + nome + ", cpf=" + cpf + ", sexo=" + sexo + ", dataNascimento=" + dataNascimento + ", endereco=" + endereco + ", contato=" + contato + '}';
     }
+    
+    
     
 }
